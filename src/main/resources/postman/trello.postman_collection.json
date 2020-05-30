@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "0ca3af27-4b81-4909-9ff6-769cb832bd1e",
+		"name": "trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "allAccounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/account/johndoe",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account",
+								"johndoe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nyeinchanlay\",\n    \"name\": \"Nyein Chan Lay\",\n    \"email\": \"nyeinchanlay99@gmail.com\",\n    \"dob\": \"1999-05-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nyeinchanlay\",\n    \"name\": \"Nyein Chan Lay\",\n    \"email\": \"nyeinchanlay99@gmail.com\",\n    \"dob\": \"1999-05-31\",\n    \"verified\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/account/nyeinchanlay",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account",
+								"nyeinchanlay"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "card",
+			"item": [
+				{
+					"name": "getCards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Testing2\",\n\t\"description\":\"This is a testing for spring boot framework.\",\n\t\"position\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/list/5/card",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"5",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCardByListId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/5/card",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"5",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Trello\",\n\t\"description\":\"This is a testing for spring boot framework.\",\n\t\"position\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/list/5/card/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"5",
+								"card",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeListOfCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/6/card/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"6",
+								"card",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCardsByTitle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/title/Trello",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"title",
+								"Trello"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "list",
+			"item": [
+				{
+					"name": "allLists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Nyein Chan Lay-Doing\",\n\t\"position\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Nyein Chan Lay-Done\",\n\t\"position\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/list/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getListByPositionGTE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/position/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"position",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getListByTitle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/title/Do",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"title",
+								"Do"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getListByStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/status/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "card member",
+			"item": [
+				{
+					"name": "getMembersInCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/cardMember/card/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"cardMember",
+								"card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveCardMember",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":{\n\t\t\"cardId\":2,\n\t\t\"accountUsername\":\"nyeinchanlay\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/list/card/cardMember",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"cardMember"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCardMember",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/cardMember/2/nyeinchanlay",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"cardMember",
+								"2",
+								"nyeinchanlay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/cardMember",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"cardMember"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/list/card/cardMember/account/nyeinchanlay",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"list",
+								"card",
+								"cardMember",
+								"account",
+								"nyeinchanlay"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "getVersion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}",
+					"host": [
+						"{{host}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
