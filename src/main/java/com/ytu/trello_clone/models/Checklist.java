@@ -23,7 +23,7 @@ public class Checklist extends MainModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id",nullable = false)
-    @JsonIgnoreProperties({"dateCreated","lastUpdated","title","description","due_date","position","status","list","checkList","members"})
+    @JsonIgnoreProperties({"dateCreated","lastUpdated","title","description","due_date","position","status","list","checkList","members","labels"})
     private Card card;
 
     public Long getId() {

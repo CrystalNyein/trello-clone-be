@@ -35,6 +35,11 @@ public class CardController {
         return cardRepository.findAll();
     }
 
+    @GetMapping("/notAchive")
+    public List<Card> getNotAchive(){
+        return cardRepository.findByStatus(1);
+    }
+
     @GetMapping("{id}")
     public Card getById(@PathVariable Long id){
         return cardRepository.getOne(id);
@@ -51,6 +56,33 @@ public class CardController {
         card.setList(listRepository.getOne(id));
         return cardRepository.saveAndFlush(card);
 
+    }
+
+    @PostMapping("/changeList")
+    public Card changeList(@RequestBody Map<String,Object> data){
+        Card card=cardRepository.getOne(Long.parseLong(data.get("card_id").toString()));
+        card.setList(listRepository.getOne(Long.parseLong(data.get("list_id").toString())));
+        return cardRepository.saveAndFlush(card);
+    }
+
+    @GetMapping("/achive/{id}")
+    public Card setAchive(@PathVariable Long id){
+        Card card=cardRepository.getOne(id);
+        card.setStatus(2);
+        return cardRepository.saveAndFlush(card);
+    }
+    @GetMapping("/delete/{id}")
+    public Card setDelete(@PathVariable Long id){
+        Card card=cardRepository.getOne(id);
+        card.setStatus(3);
+        return cardRepository.saveAndFlush(card);
+    }
+
+    @GetMapping("/unachive/{id}")
+    public Card setUnachive(@PathVariable Long id){
+        Card card=cardRepository.getOne(id);
+        card.setStatus(1);
+        return cardRepository.saveAndFlush(card);
     }
 
     @PostMapping("add-member")
@@ -106,13 +138,24 @@ public class CardController {
         return cardRepository.findByTitleContaining(title);
     }
 
-    @GetMapping("/add-label")
+    @PostMapping("/add-label")
     public Card addLabel(@RequestBody Map<String,Object> label){
         Card card=cardRepository.getOne(Long.parseLong(label.get("card_id").toString()));
         Set<Label> labels=card.getLabels();
         if(labels==null)
             labels=new HashSet<Label>();
         labels.add(labelRepository.getOne(Long.parseLong(label.get("label_id").toString())));
+        card.setLabels(labels);
+        return cardRepository.saveAndFlush(card);
+    }
+
+    @PostMapping("/remove-label")
+    public Card removeLabel(@RequestBody Map<String,Object> label){ 
+        Card card=cardRepository.getOne(Long.parseLong(label.get("card_id").toString()));
+        Set<Label> labels=card.getLabels();
+        if(labels==null)
+            labels=new HashSet<Label>();
+        labels.removeIf((l)->l.getId().equals(Long.parseLong(label.get("label_id").toString())));
         card.setLabels(labels);
         return cardRepository.saveAndFlush(card);
     }

@@ -10,4 +10,5 @@ import java.util.List;
 public interface CardRepository extends JpaRepository<Card,Long> {
     public List<Card> findByListId(Long listId);
     public List<Card> findByTitleContaining(String title);
+    public List<Card> findByStatus(Integer status);
 }
