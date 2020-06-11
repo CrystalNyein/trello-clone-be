@@ -20,6 +20,7 @@ public class Checklist extends MainModel{
     private String title;
     private String item;
     private Short position=1;
+    private Short checked=0;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id",nullable = false)
@@ -64,6 +65,14 @@ public class Checklist extends MainModel{
 
     public void setCard(Card card) {
         this.card = card;
+    }
+
+    public Short getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Short checked) {
+        this.checked = checked;
     }
 
     
